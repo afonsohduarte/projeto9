@@ -1,65 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clone Santi Clinic</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Clínica Estética</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo">
-        <img src="logo-placeholder.png" alt="Logo Santi Clinic">
-      </div>
-      <nav>
-        <ul class="menu">
-          <li>Home</li>
-          <li>Sobre Nós</li>
-          <li class="dropdown">Procedimentos
-            <ul class="submenu">
-              <li>Tratamento 1</li>
-              <li>Tratamento 2</li>
-            </ul>
-          </li>
-          <li>Contactos</li>
-          <li>Santiskin</li>
-        </ul>
-      </nav>
-      <button class="consult-button">Marcar Consulta</button>
-    </div>
+    <h1>SantiClinic - Medicina Estética</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section class="tratamentos">
-      <div class="tratamento-card">
-        <img src="tratamento-placeholder1.jpg" alt="Remoção de AH">
-        <h3>Remoção de AH</h3>
-        <a href="#" class="detail-link">Mais detalhes</a>
-      </div>
-      <div class="tratamento-card">
-        <img src="tratamento-placeholder2.jpg" alt="Tratamento Facial">
-        <h3>Tratamento Facial</h3>
-        <a href="#" class="detail-link">Mais detalhes</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <div class="social-media">
-        <p>Acompanhe-nos:</p>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-      </div>
-      <div class="footer-links">
-        <ul>
-          <li>Política de Privacidade</li>
-          <li>Política de Cookies</li>
-        </ul>
-      </div>
+  <section id="services">
+    <h2>Tratamentos</h2>
+    <div class="service">
+      <img src="botox.jpg" alt="Botox">
+      <h3>Botox</h3>
+      <a href="/treatment/1" class="arrow">→</a>
     </div>
+
+    <div class="service">
+      <img src="acido-hialuronico.jpg" alt="Ácido Hialurônico">
+      <h3>Ácido Hialurônico</h3>
+      <a href="/treatment/2" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="harmonizacao.jpg" alt="Harmonização Facial">
+      <h3>Harmonização Facial</h3>
+      <a href="/treatment/3" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="bioestimulador.jpg" alt="Bio-Estimulador">
+      <h3>Bio-Estimulador</h3>
+      <a href="/treatment/4" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="peeling-quimico.jpg" alt="Peeling Químico">
+      <h3>Peeling Químico</h3>
+      <a href="/treatment/5" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="lemon-bottle.jpg" alt="Lemon Bottle">
+      <h3>Lemon Bottle</h3>
+      <a href="/treatment/6" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="mesoterapia.jpg" alt="Mesoterapia">
+      <h3>Mesoterapia</h3>
+      <a href="/treatment/7" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="collagen-trifecta.jpg" alt="Collagen Trifecta">
+      <h3>Collagen Trifecta</h3>
+      <a href="/treatment/8" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="remocao-ah.jpg" alt="Remoção de Ácido Hialurônico">
+      <h3>Remoção de Ácido Hialurônico</h3>
+      <a href="/treatment/9" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="analises.jpg" alt="Análises">
+      <h3>Análises</h3>
+      <a href="/treatment/10" class="arrow">→</a>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Contato</h2>
+    <address>
+      <p>Praceta Agostinho Ferreira Chaves, 5 Lj 4 AA</p>
+      <p>Faro, 8005-328</p>
+      <p>Email: <a href="mailto:santiskin.pt@gmail.com">santiskin.pt@gmail.com</a></p>
+      <p>Telefone: <a href="tel:+351289142114">289 142 114</a></p>
+    </address>
   </footer>
+
 </body>
 </html>
