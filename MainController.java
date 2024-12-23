@@ -17,13 +17,41 @@ public class MainController {
     public String getTreatment(@PathVariable("id") int id, Model model) {
         String treatmentDetails;
 
-        // Dummy data - pode substituir pelos dados reais de um banco de dados
-        if (id == 1) {
-            treatmentDetails = "A Remoção de Ácido Hialurónico (AH) é feita de forma segura e eficaz.";
-        } else if (id == 2) {
-            treatmentDetails = "Realizamos análises completas para ajudar a melhorar a sua saúde.";
-        } else {
-            treatmentDetails = "Tratamento desconhecido.";
+        // Dummy data para descrição de tratamentos
+        switch (id) {
+            case 1:
+                treatmentDetails = "O Botox ajuda a reduzir rugas de expressão, proporcionando um visual rejuvenescido.";
+                break;
+            case 2:
+                treatmentDetails = "O Ácido Hialurônico preenche rugas e hidrata a pele.";
+                break;
+            case 3:
+                treatmentDetails = "A Harmonização Facial é ideal para equilibrar os traços do rosto.";
+                break;
+            case 4:
+                treatmentDetails = "O Bio-Estimulador estimula a produção de colágeno naturalmente.";
+                break;
+            case 5:
+                treatmentDetails = "O Peeling Químico promove a renovação celular para uma pele uniforme.";
+                break;
+            case 6:
+                treatmentDetails = "Lemon Bottle é um tratamento eficaz para redução de gordura localizada.";
+                break;
+            case 7:
+                treatmentDetails = "A Mesoterapia ajuda a revitalizar a pele através de microinjeções.";
+                break;
+            case 8:
+                treatmentDetails = "Collagen Trifecta reforça a saúde da pele e estimula o colágeno.";
+                break;
+            case 9:
+                treatmentDetails = "A Remoção de Ácido Hialurônico é feita com segurança e eficácia.";
+                break;
+            case 10:
+                treatmentDetails = "Análises clínicas detalhadas para acompanhar sua saúde.";
+                break;
+            default:
+                treatmentDetails = "Tratamento desconhecido.";
+                break;
         }
 
         model.addAttribute("id", id);
