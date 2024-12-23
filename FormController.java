@@ -16,7 +16,7 @@ public class FormController {
         System.out.println("Email: " + email);
         System.out.println("Mensagem: " + message);
 
-        // Redireciona para uma página de confirmação (ou apenas retorna para o index)
+        // Redireciona para uma página de confirmação ou de volta para o início
         return "redirect:/";
     }
 }
