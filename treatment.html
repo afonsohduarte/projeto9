@@ -1,37 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Tratamento</title>
-  <link rel="stylesheet" href="/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Tratamento</title>
 </head>
 <body>
-  <header>
-    <h1>Detalhes do Tratamento</h1>
-  </header>
-
-  <section>
-    <h2>Descrição</h2>
-    <p th:text="${treatmentDetails}"></p>
-
-    <h3>Agendar Consulta</h3>
-    <form action="/submit" method="POST">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-      <button type="submit">Enviar</button>
+    <section id="treatment-details"></section>
+    <form id="contact-form">
+        <h3>Fale Conosco</h3>
+        <label>Seu Nome:</label>
+        <input type="text" name="name" required><br>
+        <label>Mensagem:</label>
+        <textarea name="message" required></textarea><br>
+        <button type="submit">Enviar</button>
     </form>
-  </section>
 
-  <footer>
-    <a href="/">Voltar para Home</a>
-  </footer>
-</body>
-</html>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const treatmentId = urlParams.get('id');
 
+        fetch(`http://localhost:8080/api/treatments/${treatmentId}`)
+            .then(response => response.json())
+            .then(treatment => {
+                const detailsDiv = document.getElementById('treatment-details');
+                detailsDiv.innerHTML = `
+                    <h1>${treatment.name}</h1>
+                    <img src="${treatment.image}" alt="${treatment.name}">
+                    <p>${treatment.description}</p>
+                `;
+            });
+
+        document.getElementById('contact-form').onsubmit = function (e) {
+            e.preventDefault();
+
+            fetch('http://localhost:8080/api/treatments/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: e.target.name.value,
+                    message: e.target.message.value
+                })
+            }).then(() => {
+                alert('Mensagem enviada com sucesso!');
+            });
+        };
+    </script>
 </body>
 </html>
