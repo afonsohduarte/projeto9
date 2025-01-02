@@ -17,7 +17,7 @@ public class MainController {
     public String getTreatment(@PathVariable("id") int id, Model model) {
         String treatmentDetails;
 
-        // Dados fictícios para os tratamentos
+        // Dummy data para descrição de tratamentos
         switch (id) {
             case 1:
                 treatmentDetails = "O Botox ajuda a reduzir rugas de expressão, proporcionando um visual rejuvenescido.";
