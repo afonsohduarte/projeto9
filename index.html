@@ -1,59 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tratamentos - Clínica Estética</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .treatment {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-        img {
-            width: 250px;
-            height: auto;
-        }
-        .contact {
-            text-align: center;
-            background: #f4f4f4;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Nossos Tratamentos</h1>
-    </header>
-    <section id="treatments"></section>
-
-    <footer class="contact">
-        <h2>Entre em Contato</h2>
-        <p>Email: santiskin.pt@gmail.com</p>
-        <p>WhatsApp: +351 910 144 032</p>
-        <p>Telefone: 289 142 114</p>
-    </footer>
-
-    <script>
-        fetch('http://localhost:8080/api/treatments')
-            .then(response => response.json())
-            .then(data => {
-                const treatmentsDiv = document.getElementById('treatments');
-                data.forEach(treatment => {
-                    treatmentsDiv.innerHTML += `
-                        <div class="treatment">
-                            <img src="${treatment.image}" alt="${treatment.name}">
-                            <h3>${treatment.name}</h3>
-                            <p>${treatment.description}</p>
-                            <a href="treatment.html?id=${treatment.id}">Ver Detalhes</a>
-                        </div>
-                    `;
-                });
-            });
-    </script>
-</body>
-</html>
+<!-- Página inicial com os cards de tratamentos -->
+<section id="tratamentos">
+    <h1>Tratamentos Disponíveis</h1>
+    <div class="tratamentos-grid">
+        <div th:each="tratamento : ${tratamentos}" class="tratamento-card">
+            <a th:href="@{'/tratamento/' + ${tratamento.id}}">
+                <img th:src="@{${tratamento.imagem}}" alt="Imagem do Tratamento">
+                <h2 th:text="${tratamento.nome}"></h2>
+                <p th:text="${tratamento.descricao}"></p>
+            </a>
+        </div>
+    </div>
+</section>
