@@ -1,0 +1,28 @@
+package com.santiClinic.service;
+
+import com.santiClinic.model.Tratamento;
+import com.santiClinic.repository.TratamentoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class TratamentoService {
+
+    @Autowired
+    private TratamentoRepository tratamentoRepository;
+
+    public List<Tratamento> listarTratamentos() {
+        return tratamentoRepository.findAll();
+    }
+
+    public Optional<Tratamento> buscarTratamentoPorId(Long id) {
+        return tratamentoRepository.findById(id);
+    }
+
+    public Tratamento salvarTratamento(Tratamento tratamento) {
+        return tratamentoRepository.save(tratamento);
+    }
+}
