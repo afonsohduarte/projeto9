@@ -1,52 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Tratamento</title>
-</head>
-<body>
-    <section id="treatment-details"></section>
-    <form id="contact-form">
-        <h3>Fale Conosco</h3>
-        <label>Seu Nome:</label>
-        <input type="text" name="name" required><br>
-        <label>Mensagem:</label>
-        <textarea name="message" required></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
+<!-- Página de detalhes do tratamento -->
+<section id="detalhes-tratamento">
+    <h1 th:text="${tratamento.nome}"></h1>
+    <img th:src="@{${tratamento.imagem}}" alt="Imagem do Tratamento">
+    <p th:text="${tratamento.detalhes}"></p>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const treatmentId = urlParams.get('id');
-
-        fetch(`http://localhost:8080/api/treatments/${treatmentId}`)
-            .then(response => response.json())
-            .then(treatment => {
-                const detailsDiv = document.getElementById('treatment-details');
-                detailsDiv.innerHTML = `
-                    <h1>${treatment.name}</h1>
-                    <img src="${treatment.image}" alt="${treatment.name}">
-                    <p>${treatment.description}</p>
-                `;
-            });
-
-        document.getElementById('contact-form').onsubmit = function (e) {
-            e.preventDefault();
-
-            fetch('http://localhost:8080/api/treatments/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: e.target.name.value,
-                    message: e.target.message.value
-                })
-            }).then(() => {
-                alert('Mensagem enviada com sucesso!');
-            });
-        };
-    </script>
-</body>
-</html>
+    <section id="formulario">
+        <h2>Entre em Contato</h2>
+        <form action="/contato" method="post">
+            <input type="text" name="nome" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu E-mail" required>
+            <textarea name="mensagem" placeholder="Sua Mensagem"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</section>
