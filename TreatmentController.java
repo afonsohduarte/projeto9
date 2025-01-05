@@ -1,32 +1,35 @@
-@RestController
-@RequestMapping("/api/treatments")
-public class TreatmentController {
+package com.santiClinic.controller;
 
-    private static final List<Treatment> treatments = new ArrayList<>();
+import com.santiClinic.model.Tratamento;
+import com.santiClinic.service.TratamentoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-    static {
-        treatments.add(new Treatment(1, "Botox", "Reduz linhas de expressão e rugas", "images/botox.jpg"));
-        treatments.add(new Treatment(2, "Ácido Hialurônico", "Melhora o contorno e volume facial", "images/acido_hialuronico.jpg"));
-        treatments.add(new Treatment(3, "Harmonização Facial", "Traz equilíbrio ao rosto", "images/harmonizacao_facial.jpg"));
-        treatments.add(new Treatment(4, "Bioestimulador", "Estimula produção de colágeno", "images/bioestimulador.jpg"));
-        treatments.add(new Treatment(5, "Peeling Químico", "Remove células mortas da pele", "images/peeling.jpg"));
-        treatments.add(new Treatment(6, "Lemon Bottle", "Combate gordura localizada", "images/lemon_bottle.jpg"));
-        treatments.add(new Treatment(7, "Mesoterapia", "Rejuvenesce a pele", "images/mesoterapia.jpg"));
-        treatments.add(new Treatment(8, "Collagen Trifecta", "Revitaliza e hidrata", "images/collagen_trifecta.jpg"));
-        treatments.add(new Treatment(9, "Remoção de AH", "Remove ácido hialurônico antigo", "images/remocao_ah.jpg"));
-        treatments.add(new Treatment(10, "Análises", "Exames completos de saúde", "images/analises.jpg"));
+@Controller
+public class TratamentoController {
+
+    @Autowired
+    private TratamentoService tratamentoService;
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("tratamentos", tratamentoService.listarTratamentos());
+        return "index";
     }
 
-    @GetMapping
-    public List<Treatment> getAllTreatments() {
-        return treatments;
+    @GetMapping("/tratamento/{id}")
+    public String detalhesTratamento(@PathVariable Long id, Model model) {
+        tratamentoService.buscarTratamentoPorId(id).ifPresent(tratamento -> model.addAttribute("tratamento", tratamento));
+        return "tratamento";
     }
 
-    @GetMapping("/{id}")
-    public Treatment getTreatmentById(@PathVariable int id) {
-        return treatments.stream()
-                .filter(treatment -> treatment.getId() == id)
-                .findFirst()
-                .orElse(null);
+    @PostMapping("/contato")
+    public String enviarContato(String nome, String email, String mensagem) {
+        System.out.println("Contato recebido: " + nome + ", " + email + ", " + mensagem);
+        return "redirect:/";
     }
 }
