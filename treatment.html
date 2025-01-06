@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +13,21 @@
 
   <section>
     <h2>Descrição</h2>
-    <p th:text="${treatmentDetails}"></p>
+    <!-- Exibe os detalhes do tratamento -->
+    <p th:text="${tratamento.detalhes}"></p>
 
     <h3>Agendar Consulta</h3>
-    <form action="/submit" method="POST">
+    <!-- Formulário de contato -->
+    <form action="/contato" method="POST">
       <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="nome" required>
+      
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
+      
       <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" rows="4"></textarea>
+      <textarea id="message" name="mensagem" rows="4"></textarea>
+      
       <button type="submit">Enviar</button>
     </form>
   </section>
