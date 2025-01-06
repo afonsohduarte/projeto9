@@ -1,14 +1,10 @@
-package com.santiClinic.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 @Entity
 public class Tratamento {
 
     @Id
     private Long id;
-    private String nome;
+    
+    private String titulo;  // Alterado de "nome" para "titulo"
     private String descricao;
     private String imagem;
     private String detalhes;
@@ -22,12 +18,12 @@ public class Tratamento {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTitulo() {  // Alterado de "getNome" para "getTitulo"
+        return titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTitulo(String titulo) {  // Alterado de "setNome" para "setTitulo"
+        this.titulo = titulo;
     }
 
     public String getDescricao() {
