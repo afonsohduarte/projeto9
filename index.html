@@ -1,13 +1,95 @@
-<!-- Página inicial com os cards de tratamentos -->
-<section id="tratamentos">
-    <h1>Tratamentos Disponíveis</h1>
-    <div class="tratamentos-grid">
-        <div th:each="tratamento : ${tratamentos}" class="tratamento-card">
-            <a th:href="@{'/tratamento/' + ${tratamento.id}}">
-                <img th:src="@{${tratamento.imagem}}" alt="Imagem do Tratamento">
-                <h2 th:text="${tratamento.nome}"></h2>
-                <p th:text="${tratamento.descricao}"></p>
-            </a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Estética</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>SantiClinic - Medicina Estética</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="services">
+    <h2>Tratamentos</h2>
+    <div class="service">
+      <img src="botox.jpg" alt="Botox">
+      <h3>Botox</h3>
+      <a href="/treatment/1" class="arrow">→</a>
     </div>
-</section>
+
+    <div class="service">
+      <img src="acido-hialuronico.jpg" alt="Ácido Hialurônico">
+      <h3>Ácido Hialurônico</h3>
+      <a href="/treatment/2" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="harmonizacao.jpg" alt="Harmonização Facial">
+      <h3>Harmonização Facial</h3>
+      <a href="/treatment/3" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="bioestimulador.jpg" alt="Bio-Estimulador">
+      <h3>Bio-Estimulador</h3>
+      <a href="/treatment/4" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="peeling-quimico.jpg" alt="Peeling Químico">
+      <h3>Peeling Químico</h3>
+      <a href="/treatment/5" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="lemon-bottle.jpg" alt="Lemon Bottle">
+      <h3>Lemon Bottle</h3>
+      <a href="/treatment/6" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="mesoterapia.jpg" alt="Mesoterapia">
+      <h3>Mesoterapia</h3>
+      <a href="/treatment/7" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="collagen-trifecta.jpg" alt="Collagen Trifecta">
+      <h3>Collagen Trifecta</h3>
+      <a href="/treatment/8" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="remocao-ah.jpg" alt="Remoção de Ácido Hialurônico">
+      <h3>Remoção de Ácido Hialurônico</h3>
+      <a href="/treatment/9" class="arrow">→</a>
+    </div>
+
+    <div class="service">
+      <img src="analises.jpg" alt="Análises">
+      <h3>Análises</h3>
+      <a href="/treatment/10" class="arrow">→</a>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Contato</h2>
+    <address>
+      <p>Praceta Agostinho Ferreira Chaves, 5 Lj 4 AA</p>
+      <p>Faro, 8005-328</p>
+      <p>Email: <a href="mailto:santiskin.pt@gmail.com">santiskin.pt@gmail.com</a></p>
+      <p>Telefone: <a href="tel:+351289142114">289 142 114</a></p>
+    </address>
+  </footer>
+
+</body>
+</html>
