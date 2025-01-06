@@ -23,7 +23,8 @@ public class TratamentoController {
 
     @GetMapping("/tratamento/{id}")
     public String detalhesTratamento(@PathVariable Long id, Model model) {
-        tratamentoService.buscarTratamentoPorId(id).ifPresent(tratamento -> model.addAttribute("tratamento", tratamento));
+        tratamentoService.buscarTratamentoPorId(id)
+            .ifPresent(tratamento -> model.addAttribute("tratamento", tratamento));
         return "tratamento";
     }
 
