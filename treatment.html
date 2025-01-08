@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +7,60 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <!-- Cabeçalho -->
   <header>
-    <h1 th:text="${tratamento.nome}"></h1>
+    <div class="header-container">
+      <div class="logo">
+        <img src="logo.png" alt="Logo da Clínica">
+      </div>
+      <h1 th:text="${tratamento.nome}"></h1>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <button class="consult-button">Consultar</button>
+    </div>
   </header>
 
+  <!-- Seção de Detalhes do Tratamento -->
   <section>
     <h2>Descrição</h2>
     <p th:text="${tratamento.detalhes}"></p>
 
     <h3>Agendar Consulta</h3>
-    <form action="/contato" method="POST">
+    <form action="/contato" method="POST" class="contact-form">
       <label for="name">Nome:</label>
-      <input type="text" id="name" name="nome" required>
+      <input type="text" id="name" name="nome" required class="input-field">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required class="input-field">
       <label for="message">Mensagem:</label>
-      <textarea id="message" name="mensagem" rows="4"></textarea>
-      <button type="submit">Enviar</button>
+      <textarea id="message" name="mensagem" rows="4" class="input-field"></textarea>
+      <button type="submit" class="submit-button">Enviar</button>
     </form>
   </section>
 
+  <!-- Rodapé -->
   <footer>
-    <a href="/">Voltar para Home</a>
+    <div class="footer-container">
+      <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+      <address>
+        <p>Praceta Agostinho Ferreira Chaves, 5 Lj 4 AA</p>
+        <p>Faro, 8005-328</p>
+        <p>Email: <a href="mailto:santiskin.pt@gmail.com">santiskin.pt@gmail.com</a></p>
+        <p>Telefone: <a href="tel:+351289142114">289 142 114</a></p>
+      </address>
+    </div>
   </footer>
+
 </body>
 </html>
+
