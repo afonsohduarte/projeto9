@@ -1,12 +1,32 @@
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Entity
 public class Tratamento {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String titulo;  // Alterado de "nome" para "titulo"
+
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String titulo;
+
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 5, max = 255)
     private String descricao;
+
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 10, max = 255)
     private String imagem;
+
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 5, max = 500)
     private String detalhes;
 
     // Getters e Setters
@@ -18,11 +38,11 @@ public class Tratamento {
         this.id = id;
     }
 
-    public String getTitulo() {  // Alterado de "getNome" para "getTitulo"
+    public String getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {  // Alterado de "setNome" para "setTitulo"
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
